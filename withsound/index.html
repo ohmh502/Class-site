@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+<link rel="stylesheet" href="styles.css">
+
+<style media="screen">
+.sqs-audio-embed{
+  visibility: hidden;
+}
+audio { 
+   display:none;
+}
+body{
+	background-color: #E6D6D3;
+}
+</style>
+</head>
+
+<body>
+<audio autoplay="autoplay" controls="controls" loop>
+	<source src="blinking.wav" type="audio/mpeg">
+</audio>
+
+<audio id="audio2" preload="auto" src="sniff.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="audio3" preload="auto" src="yawning.mp3" type="audio/mpeg">
+</audio>
+
+<img src="face.jpg" width="600px"></img>
+
+	<img id="image" src="sneeze1.png" width="600px">
+	<script type = "text/javascript">
+	var image=document.getElementById("image");
+	var currentPos = 0;
+	var images = ["sneeze1.png","sniff.gif"]
+
+	function volgendefoto() {
+	    if (++currentPos >= images.length) currentPos = 0;
+	    image.src = images[currentPos];
+	}
+	setInterval(volgendefoto, 60000);
+	</script>
+
+
+	<img id="image2" src="mouth1.png" width="600px">
+	<script type = "text/javascript">
+	var image=document.getElementById("image2");
+	var currentPos = 0;
+	var images = ["mouth1.png","yawn.gif"]
+
+	function volgendefoto() {
+	    if (++currentPos >= images.length) currentPos = 0;
+	    image.src = images[currentPos];
+	}
+	setInterval(volgendefoto, 360000);
+	</script>
+
+	<script>
+    myAudio=document.getElementById('audio2');
+    myAudio.addEventListener('canplaythrough', function() {
+    if(this.currentTime < 60){this.currentTime = 60;}
+    this.play();
+    });
+	</script>
+
+	<script>
+    myAudio=document.getElementById('audio3');
+    myAudio.addEventListener('canplaythrough', function() {
+    if(this.currentTime < 3600){this.currentTime = 3600;}
+    this.play();
+    });
+	</script>
+
+<img src="blink1.gif" width= "550px"></img>
+<img src="blink2.gif" width="700px"></img>
+</body>
+</html>
